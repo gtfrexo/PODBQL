@@ -5,7 +5,7 @@ defmodule PodbqlWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", PodbqlWeb do
+  scope "/", PodbqlWeb do
     pipe_through :api
     resources "/persons", PersonController, except: [:new, :edit]
     resources "/locations", LocationController, except: [:new, :edit]
@@ -18,4 +18,12 @@ defmodule PodbqlWeb.Router do
     resources "/messages", MessageController, except: [:new, :edit]
     resources "/chats", ChatController, except: [:new, :edit]
   end
+
+  forward "/api", Absinthe.Plug,
+    schema: PodbqlWeb.Schema
+
+  forward "/graphiql", Absinthe.Plug.GraphiQL,
+    schema: PodbqlWeb.Schema
+
+
 end
