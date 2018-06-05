@@ -6,7 +6,7 @@ defmodule Podbql.Pools.Pool do
   schema "pools" do
     field :influencedChats, :integer
     field :linkedEvent, :string
-    field :poolId, Ecto.UUID
+    #field :poolId, Ecto.UUID
 
     timestamps()
   end

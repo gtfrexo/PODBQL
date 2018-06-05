@@ -1,13 +1,14 @@
 defmodule PodbqlWeb.Schema.Types do
     use Absinthe.Schema.Notation
     use Absinthe.Ecto, repo: Podbql.Repo
+    import_types(Absinthe.Type.Custom)
 
     object :person do
 
         field :id, :id
         field :age, :integer
-        field :birthday, :utc_datetime
-        field :currentlyBlocking, {:array, Ecto.UUID}
+        field :birthday, :datetime
+        #field :currentlyBlocking, {:array, Ecto.UUID}
         field :email, :string
         field :eventsCreated, :integer
         field :gender, :string
@@ -20,7 +21,7 @@ defmodule PodbqlWeb.Schema.Types do
         field :startedChats, :integer
         field :targetGender, :string
         field :targetRelationship, :string
-        field :uid, Ecto.UUID
+        #field :uid, Ecto.UUID
         field :worstPickup, :string
 
         field :createdEvents, list_of(:event), resolve: assoc(:events)
@@ -46,9 +47,9 @@ defmodule PodbqlWeb.Schema.Types do
     object :media do
         
         field :id, :id
-        field :deletedAt, :utc_datetime
+        field :deletedAt, :datetime
         field :description, :string
-        field :mediaId, Ecto.UUID
+        #field :mediaId, Ecto.UUID
         field :mediaType, :string
         field :url, :string
 
@@ -62,7 +63,7 @@ defmodule PodbqlWeb.Schema.Types do
         field :eventsCreated, :integer
         field :name, :string
         field :nameFull, :string
-        field :venueId, Ecto.UUID
+        #field :venueId, Ecto.UUID
         field :location, :id
 
         #many_to_many(:events, Podbql.Events.Event, join_through: "events_venues")
@@ -76,11 +77,11 @@ defmodule PodbqlWeb.Schema.Types do
         field :id, :id
         field :category, :string
         field :description, :string
-        field :endTime, :naive_datetime
+        field :endTime, :datetime
         field :eventClicked, :integer
-        field :eventId, Ecto.UUID
+        #field :eventId, Ecto.UUID
         field :poolClicked, :integer
-        field :startTime, :naive_datetime
+        field :startTime, :datetime
         field :title, :string
         field :titleFull, :string
         field :locationCreated, :id
@@ -98,7 +99,7 @@ defmodule PodbqlWeb.Schema.Types do
         field :id, :id
         field :createdEvents, :integer
         field :description, :string
-        field :hostId, Ecto.UUID
+        #field :hostId, Ecto.UUID
         field :name, :string
         field :nameFull, :string
 
@@ -108,7 +109,7 @@ defmodule PodbqlWeb.Schema.Types do
         
         field :id, :id
         field :contentType, :string
-        field :fileId, Ecto.UUID
+        #field :fileId, Ecto.UUID
         field :name, :string
         field :nameFull, :string
         field :secret, :string
@@ -122,7 +123,7 @@ defmodule PodbqlWeb.Schema.Types do
         field :id, :id
         field :influencedChats, :integer
         field :linkedEvent, :string
-        field :poolId, Ecto.UUID
+        #field :poolId, Ecto.UUID
 
     end
 
@@ -130,9 +131,9 @@ defmodule PodbqlWeb.Schema.Types do
         
         field :id, :id
         field :content, :string
-        field :messageId, Ecto.UUID
-        field :readAt, :utc_datetime
-        field :wasRead, :boolean, default: false
+        #field :messageId, Ecto.UUID
+        field :readAt, :datetime
+        field :wasRead, :boolean
         field :sender, :id
         field :sentTo, :id
 
@@ -141,8 +142,8 @@ defmodule PodbqlWeb.Schema.Types do
     object :chat do
         
         field :id, :id
-        field :chatId, Ecto.UUID
-        field :isBlocked, :boolean, default: false
+        #field :chatId, Ecto.UUID
+        field :isBlocked, :boolean
         field :initiator, :id
         field :fromPool, :id
 

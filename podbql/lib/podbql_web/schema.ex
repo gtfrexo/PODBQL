@@ -65,7 +65,7 @@ defmodule PodbqlWeb.Schema do
 
         field :file, type: :file do
             arg :id, non_null(:id)
-            resolver &Podbql.FileResolver.find/2
+            resolve &Podbql.FileResolver.find/2
         end
 
         field :pools, list_of(:pool) do
@@ -83,7 +83,7 @@ defmodule PodbqlWeb.Schema do
 
         field :message, type: :message do
             arg :id, non_null(:id)
-            resolver &Podbql.MessageResolver.find/2
+            resolve &Podbql.MessageResolver.find/2
         end
 
         field :chats, list_of(:chat) do

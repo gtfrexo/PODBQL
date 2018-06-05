@@ -19,12 +19,13 @@ defmodule Podbql.Persons.Person do
     field :startedChats, :integer
     field :targetGender, :string
     field :targetRelationship, :string
-    field :uid, Ecto.UUID
+    #field :uid, Ecto.UUID
     field :worstPickup, :string
 
     has_many :createdEvents, Podbql.Events.Event
     has_many :createdChats, Podbql.Chats.Chat
     has_many :joinedPools, Podbql.Pools.Pool
+    
 
     timestamps()
   end

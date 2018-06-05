@@ -6,7 +6,7 @@ defmodule Podbql.Medias.Media do
   schema "medias" do
     field :deletedAt, :utc_datetime
     field :description, :string
-    field :mediaId, Ecto.UUID
+    #field :mediaId, Ecto.UUID
     field :mediaType, :string
     field :url, :string
 

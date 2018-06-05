@@ -5,9 +5,9 @@ defmodule Podbql.Messages.Message do
 
   schema "messages" do
     field :content, :string
-    field :messageId, Ecto.UUID
+    #field :messageId, Ecto.UUID
     field :readAt, :utc_datetime
-    field :wasRead, :boolean, default: false
+    field :wasRead, :boolean
     field :sender, :id
     field :sentTo, :id
 

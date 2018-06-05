@@ -5,7 +5,7 @@ defmodule Podbql.Files.File do
 
   schema "files" do
     field :contentType, :string
-    field :fileId, Ecto.UUID
+    #field :fileId, Ecto.UUID
     field :name, :string
     field :nameFull, :string
     field :secret, :string

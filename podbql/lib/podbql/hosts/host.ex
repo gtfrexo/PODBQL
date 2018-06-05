@@ -6,7 +6,7 @@ defmodule Podbql.Hosts.Host do
   schema "hosts" do
     field :createdEvents, :integer
     field :description, :string
-    field :hostId, Ecto.UUID
+    #field :hostId, Ecto.UUID
     field :name, :string
     field :nameFull, :string
 

@@ -4,8 +4,8 @@ defmodule Podbql.Chats.Chat do
 
 
   schema "chats" do
-    field :chatId, Ecto.UUID
-    field :isBlocked, :boolean, default: false
+    #field :chatId, Ecto.UUID
+    field :isBlocked, :boolean
     field :initiator, :id
     field :fromPool, :id
     has_many :messages, Podbql.Messages.Message

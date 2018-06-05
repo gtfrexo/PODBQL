@@ -8,7 +8,7 @@ defmodule Podbql.Events.Event do
     field :description, :string
     field :endTime, :naive_datetime
     field :eventClicked, :integer
-    field :eventId, Ecto.UUID
+    #field :eventId, Ecto.UUID
     field :poolClicked, :integer
     field :startTime, :naive_datetime
     field :title, :string
@@ -17,9 +17,9 @@ defmodule Podbql.Events.Event do
     field :whoCreated, :id
     field :mainPic, :id
 
-    many_to_many :hosts, Podbql.Hosts.Host, join_through, "hosts_events"
-    many_to_many :images, Podbql.Medias.Media, join_through, "medias_events"
-    many_to_many :venues, Podbql.Venues.Venue, join_through, "venues_events"
+    #many_to_many :hosts, Podbql.Hosts.Host, join_through, "hosts_events"
+    #many_to_many :images, Podbql.Medias.Media, join_through, "medias_events"
+    #many_to_many :venues, Podbql.Venues.Venue, join_through, "venues_events"
 
     timestamps()
   end

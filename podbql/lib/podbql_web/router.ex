@@ -14,7 +14,7 @@ defmodule PodbqlWeb.Router do
     resources "/events", EventController, except: [:new, :edit]
     resources "/hosts", HostController, except: [:new, :edit]
     resources "/files", FileController, except: [:new, :edit]
-    resources "/pools", FileController, except: [:new, :edit]
+    resources "/pools", PoolController, except: [:new, :edit]
     resources "/messages", MessageController, except: [:new, :edit]
     resources "/chats", ChatController, except: [:new, :edit]
   end
